@@ -1,51 +1,36 @@
 lang: en
-title: openSUSE Template
-title_short: Template
-description: Template for openSUSE Websites
-email: admin@opensuse.org
+title: SIGILLatum
+description: Petr Tesarik's Linux blog
+author:
+  name: Petr Tesařík
+  email: ptesarik@suse.com
+  github: ptesarik
+  twitter: ptesarik_SUSE
+  linkedin: tesarik
 copyright: '© 2021 openSUSE contributors'
 baseurl: ""
-url: "https://template.opensuse.org"
-github_url: "https://github.com/openSUSE/jekyll-template"
-
-navbar_links:
-  -
-    link: https://www.opensuse.org/
-    text: Absolute Link 1
-  -
-    link: /about/
-    text: Relative Link 2
+url: "https://SIGILLatum.tesarici.cz"
+github_url: "https://github.com/ptesarik/SIGILLatum.github.io"
 
 footer_links:
   -
     text: Source Code
-    link: https://github.com/openSUSE/jekyll-template
+    link: https://github.com/ptesarik/SIGILLatum.github.io
   -
     text: License
-    link: https://github.com/openSUSE/jekyll-template/blob/master/COPYING
+    link: https://github.com/ptesarik/SIGILLatum.github.io/blob/master/COPYING
 
-# Only edit below if you know what you are doing!
+remote_theme: pages-themes/minimal
 
-defaults:
-  -
-    scope:
-      path: "*.html"
-    values:
-      layout: "default"
-  -
-    scope:
-      path: "*.md"
-    values:
-      layout: "markdown"
-  -
-    scope:
-      path: "*.markdown"
-    values:
-      layout: "markdown"
-
-disable_search: true
-
-remote_theme: openSUSE/jekyll-theme
+# markdown render engine.
+markdown_ext: md,mdwn
 markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+
+# Permalinks
+permalink: /:categories/:year-:month-:day-:title:output_ext
+
+regenerate: true
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor]
