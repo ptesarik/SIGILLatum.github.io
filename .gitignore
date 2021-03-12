@@ -1,5 +1,16 @@
+# editor-generated files
+*~
+*.swp
+
+# Jekyll files
 _site/
-.sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+
+# Ruby files
+.bundle
+Gemfile.lock
 vendor/
+
+# Other tools
+.sass-cache/
