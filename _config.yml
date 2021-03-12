@@ -1,24 +1,10 @@
 lang: en
 title: SIGILLatum
 description: Petr Tesarik's Linux blog
-author:
-  name: Petr Tesařík
-  email: ptesarik@suse.com
-  github: ptesarik
-  twitter: ptesarik_SUSE
-  linkedin: tesarik
-copyright: '© 2021 openSUSE contributors'
-baseurl: ""
+author: Petr Tesařík
+email: ptesarik@suse.com
 url: "https://SIGILLatum.tesarici.cz"
 github_url: "https://github.com/ptesarik/SIGILLatum.github.io"
-
-footer_links:
-  -
-    text: Source Code
-    link: https://github.com/ptesarik/SIGILLatum.github.io
-  -
-    text: License
-    link: https://github.com/ptesarik/SIGILLatum.github.io/blob/master/COPYING
 
 remote_theme: pages-themes/minimal
 
@@ -30,7 +16,5 @@ kramdown:
 
 # Permalinks
 permalink: /:categories/:year-:month-:day-:title:output_ext
-
-regenerate: true
 
 exclude: [README.md, Gemfile, Gemfile.lock, vendor]
