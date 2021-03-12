@@ -8,7 +8,7 @@ description:
   code.
   
   
-  **UPDATE:** Added instructions for SSD.
+  **UPDATE:** Added instructions for SSSD.
 ---
 
 Get the [schema file](/files/openssh-ldap.schema) and save it as
