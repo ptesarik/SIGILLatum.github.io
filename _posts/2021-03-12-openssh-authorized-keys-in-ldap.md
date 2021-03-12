@@ -3,7 +3,12 @@ layout: post
 title: "OpenSSH: Store authorized keys in LDAP"
 date: "2021-03-12"
 tags: [guide, shell, ldap, ssh]
-description: A guide on storing OpenSSH authorized keys with OpenLDAP, complete with code.
+description:
+  A guide on storing OpenSSH authorized keys with OpenLDAP, complete with
+  code.
+  
+  
+  **UPDATE:** Added instructions for SSD.
 ---
 
 Get the [schema file](/files/openssh-ldap.schema) and save it as
@@ -37,13 +42,21 @@ attribute like this to your `olcDatabase=<your_db_name>,cn=config`:
 	 by self write 
 	 by dn.exact=gidNumber=129+uidNumber=124,cn=peercred,cn=external,cn=auth read
 
-Next, download a [shell script](/files/ldap-authorized-keys), customize it to
+If you use SSSD on your system, add `ssh` to the `services` option in your
+`/etc/sssd/sssd.conf`, restart `sssd` and add these options to your
+`/etc/ssh/sshd_config`:
+
+	AuthorizedKeysCommand /usr/bin/sss_ssh_authorizedkeys
+	AuthorizedKeysCommandUser nobody
+
+If you don't use SSSD, download a [shell script](/files/ldap-authorized-keys),
+customize it to match
 your needs (change the base object DN, add a server URI, etc.) and install it
 in a suitable directory:
 
     install -o root -g root ldap-authorized-keys /usr/lib/openssh/
 
-Add these options to `/etc/ssh/sshd_config`:
+Then add these options to `/etc/ssh/sshd_config` instead:
 
 	AuthorizedKeysCommand /usr/lib/openssh/ldap-authorized-keys
 	AuthorizedKeysCommandUser sshd-ldap
