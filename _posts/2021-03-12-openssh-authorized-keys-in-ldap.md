@@ -71,6 +71,6 @@ You can now add SSH public keys with an LDIF file like this:
 	changetype: modify
 	add: objectClass
 	objectClass: ldapPublicKey
-    --
+	-
 	add: sshPublicKey
 	sshPublicKey: <user's public key>
