@@ -68,7 +68,7 @@ section if you need more control.
     network boot, set the value to `0x2`, or `0xf2` to keep trying forever if
     the boot attempt fails. A detailed explanation of this option can be found
     in the
-    [official documentation](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2711_bootloader_config.md).
+    [official documentation](https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2711_bootloader_config.md#BOOT_ORDER).
 
   - Create an updated firmware image and remove the original file:
 
