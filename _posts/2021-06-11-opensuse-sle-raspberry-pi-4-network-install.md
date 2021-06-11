@@ -17,6 +17,32 @@ Network boot is disabled in the default (factory) configuration of your
 Raspberry Pi 4. To allow booting from the network, the EEPROM bootloader
 configuration must be changed. To do this, prepare a “recovery” SD card:
 
+### The Easy Way
+
+- Install the
+  [Raspberry Pi Imager](https://snapcraft.io/install/rpi-imager/opensuse)
+  on your desktop system.
+
+- In the Imager, choose _Operating system_ 〉 _Bootloader_ 〉 _Network
+  boot_. Select the microSD card where to write the image.
+
+- The rest of the process is identical with the instructions from the EEPROM
+  recovery `README.txt`:
+
+  - Make sure your Raspberry Pi is powered off.
+
+  - Insert the microSD card into your Raspberry Pi.
+
+  - Power on your Raspberry Pi.
+
+  - Wait at least 10 seconds.
+
+Note that BOOT_ORDER is set to `0xf21`, i.e. it will attemp the microSD card
+first, and only if that fails, it will boot from network. Read the next
+section if you need more control.
+
+### The Hard Way
+
 - Download the latest release of the
   [EEPROM bootloader](https://github.com/raspberrypi/rpi-eeprom/releases/latest).
 
@@ -55,16 +81,7 @@ configuration must be changed. To do this, prepare a “recovery” SD card:
 
 - Unmount the microSD card.
 
-- The rest of the process is identical with the instructions from the EEPROM
-  recovery `README.txt`:
-
-  - Make sure your Raspberry Pi is powered off.
-
-  - Insert the microSD card into your Raspberry Pi.
-
-  - Power on your Raspberry Pi.
-
-  - Wait at least 10 seconds.
+- Follow the steps from the EEPROM recovery `README.txt`.
 
 At this point, your Raspberry Pi is ready to boot over Ethernet. You can
 remove the microSD card now, unless you are going to install the operating
