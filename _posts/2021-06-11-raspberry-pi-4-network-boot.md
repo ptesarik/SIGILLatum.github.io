@@ -2,7 +2,7 @@
 layout: post
 title: "Raspberry Pi 4 Network Boot"
 date: "2021-06-11"
-tags: [guide, raspberry, rpi4, dhcp, tftp]
+tags: [raspberry, rpi4, boot, dhcp, tftp]
 description:
   Find out about all the gory details of booting a Raspberry Pi 4 over an
   Ethernet connection, including openSUSE/SLE specifics.
