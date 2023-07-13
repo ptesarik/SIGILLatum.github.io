@@ -22,9 +22,9 @@ Arm QEMU VMs use AAVMF firmware by default. However, the 32-bit AAVMF firmware
 cannot find any disks, rendering the system unbootable. This is a bug that
 should be fixed, but I haven't had time to debug this any further.
 
-I was able to boot the system with U-Boot, though. The QEMU image is not
-packaged, but you can build it from sources with `make qemu_arm_defconfig`.
-Install it to some convenient place; I installed mine as
+I was able to boot the system with U-Boot, though. The U-Boot image for QEMU
+is not packaged, but you can build it from sources with `make
+qemu_arm_defconfig`.  Install it to some convenient place; I installed mine as
 `/usr/share/qemu/u-boot-qemu-arm.bin` and modified my libvirt VM configuration
 thus:
 
@@ -69,7 +69,7 @@ The kernel can find the initramfs now, but it fails to initialize ELF core
 headers (`elfcorehdr`) with a fat kernel warning that the kernel is trying to
 remap normal RAM as an I/O region. This would indeed cause serious cache
 aliasing issues on Arm. However, ELF core headers are allocated at the top of
-crash kernel reserved region and is removed from usable memory by kexec-tools,
+crash kernel reserved region and removed from usable memory by kexec-tools,
 so this physical region should not be recognized as RAM by the panic kernel.
 
 Hm. Turn on memblock debugging.
