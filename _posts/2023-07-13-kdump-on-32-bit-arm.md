@@ -7,6 +7,8 @@ description:
   How to get kdump going on openSUSE Tumbleweed for 32-bit Arm.
 ---
 
+**NOTE:** This post is about openSUSE Tumbleweed only.
+
 ## Installation
 
 AFAIK there are no ISO installation media, but there are plenty of pre-built
@@ -106,4 +108,4 @@ few missing bits at the moment:
 - same issue with `calibrate/run-qemu.py`
 - unless your machine is an `armv8b` or `armv8l`, the QEMU program name will
   be incorrect
-
+- QEMU requires additional parameters (e.g. `-machine virt`).
