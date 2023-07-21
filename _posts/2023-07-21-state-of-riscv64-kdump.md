@@ -356,8 +356,8 @@ riscv64-tumbleweed:~ # ls -l /proc/vmcore
 -r-------- 1 root root 1645350912 Jul 21 13:48 /proc/vmcore
 ```
 
-The bad news is that you cannot copy it out. I tried to transfer it with
-`rsync` and I crashed the panic kernel (100% reproducible):
+The bad news is that something is broken when reading it. I tried to transfer
+it with `rsync` and I crashed the panic kernel (100% reproducible):
 
 ```
 [ 1558.887710][  T929] usercopy: Kernel memory exposure attempt detected from SLUB object 'kmem_cache_node' (offset 0, size 4096)!
@@ -398,3 +398,6 @@ The bad news is that you cannot copy it out. I tried to transfer it with
 [ 1558.912607][    C1] Kernel panic - not syncing: Fatal exception in interrupt
 [ 1558.912702][    C1] SMP: stopping secondary CPUs
 ```
+
+Of course, you can use `hardened_usercopy=n` on the kernel command line to
+disable the hardening, but I'm not sure it is the right solution.
