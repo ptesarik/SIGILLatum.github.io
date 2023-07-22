@@ -20,7 +20,7 @@ option on RISC-V. The bad news is that the correct size must be guessed, and
 there is no clear guidance. Let's make it a big reservation and use
 `crashkernel=512M`; half a gigabyte ought to be enough for anybody, right?
 
-Add the `crahkernel` option to `/etc/default/grub`, regenerate `grub.conf` and
+Add the `crashkernel` option to `/etc/default/grub`, regenerate `grub.conf` and
 reboot. Check the kernel messages. You should see something like this:
 
 ```
