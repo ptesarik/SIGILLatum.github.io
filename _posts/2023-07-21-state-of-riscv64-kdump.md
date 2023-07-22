@@ -90,7 +90,7 @@ int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
 
 	if (info->file_mode) {
 		fprintf(stderr, "kexec_file not supported on this "
-						"architecture\n");
+			"architecture\n");
 		return -EINVAL;
 	}
 ```
@@ -104,8 +104,8 @@ change the code to look more like this:
 			info->initrd_fd = open(arch_options.initrd_path, O_RDONLY);
 			if (info->initrd_fd == -1) {
 				fprintf(stderr,
-						"Could not open initrd file %s:%s\n",
-						arch_options.initrd_path, strerror(errno));
+					"Could not open initrd file %s:%s\n",
+					arch_options.initrd_path, strerror(errno));
 				return EFAILED;
 			}
 		}
