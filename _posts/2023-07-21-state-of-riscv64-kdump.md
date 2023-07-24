@@ -343,8 +343,13 @@ petr@meshulam:~/riscv/linux> l -h vmlinux.stripped
 -rwxr-xr-x 1 petr petr  28M Jul 21 13:55 build/vmlinux.stripped
 ```
 
-Now, if you load this `vmlinux.stripped`, the kernel finally boots! Beware,
-the system looks normal, but it runs with only 512M of memory.
+Now, if you load this `vmlinux.stripped`, the kernel finally boots! ~~Beware,
+the system looks normal, but it runs with only 512M of memory.~~
+
+**UPDATE 2023-07-24:** The panic system will use all available RAM, because
+the Tumbleweed kernel is build with EFI support, booted through U-Boot EFI
+implementation, so it parses the EFI memory descriptors which still cover all
+of RAM.
 
 ## Get the Core Dump
 
@@ -401,3 +406,6 @@ it with `rsync` and I crashed the panic kernel (100% reproducible):
 
 Of course, you can use `hardened_usercopy=n` on the kernel command line to
 disable the hardening, but I'm not sure it is the right solution.
+
+**UPDATE 2023-07-24:** This happens, because the panic kernel reuses old
+kernel memory. See also the note above EFI memory descriptors above.
