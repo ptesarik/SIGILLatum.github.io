@@ -83,7 +83,7 @@ may be a better choice:
 
 ## How?
 
-Sandbox mode runs in non-privileged CPU mode, that is the mode that is
+Sandbox mode runs in non-privileged CPU mode, that is the mode which is
 normally used to run user space, not kernel code. It runs within its own
 address space, which is a subset of the kernel address space, possibly with
 modified permission bits. This allows, for example, to map read-write kernel
@@ -94,7 +94,7 @@ On CPU interrupt, a trampoline handler enters kernel mode to invoke the
 original kernel handler. Note that this is also the only way to preempt code
 running in Sandbox Mode.
 
-The page fault CPU exception is intercepted and terminate the sandbox.
+The page fault CPU exception is intercepted and terminates the sandbox.
 
 ## When?
 
