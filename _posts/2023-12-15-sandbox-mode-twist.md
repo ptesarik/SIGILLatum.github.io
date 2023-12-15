@@ -28,7 +28,7 @@ community.
 
 There has been good progress on sandbox mode (SBM) features:
 
-* The public API looks reasonably complex.
+* The public API looks reasonably easy to use.
 * Sandbox code runs with CPL == 3 on x86_64.
 * Page faults terminate the sandbox, returning `-EFAULT` from `sbm_call()`.
 * Sandbox mode can be preempted.
