@@ -13,7 +13,7 @@ description:
 
 The original plan was to provide at least one in-tree user. However, the
 minimum implementation was too limited to allow converting any existing code,
-unless it was so trivial that it did little sense to run it in a sandbox.
+unless it was so trivial that it made little sense to run it in a sandbox.
 
 So, the patch series kept growing... It is 31 patches now (and counting), they
 are still not quite fit to make a sensible conversion of existing code, and I
