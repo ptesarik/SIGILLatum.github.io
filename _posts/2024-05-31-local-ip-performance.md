@@ -102,7 +102,8 @@ amount of work remains unchanged, then running the benchmark on a single CPU
 core should yield similar results, right? Let's pin the server and client to
 the same CPU. Of course, this reduces the total throughput drastically, but
 the results should be equally bad with SP5 and SP6. Except they aren't,
-because the scheduler was changed from CFS to EEVDF in v6.6, and the SP6
+because the scheduler ~~was changed from CFS to EEVDF in v6.6~~
+(**EDIT** 2024-06-04, thanks to _vbabka_ for spotting this) in the SP6
 kernel now makes more frequent context switches, greatly reducing the latency
 between `sendto()` in client and `recvfrom()` in server, but at the expense of
 total throughput.
