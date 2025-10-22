@@ -58,7 +58,8 @@ than normal parameters. More specifically, they are handled by the
 “Kernel command line: ” to the message log and before it lists unknown
 parameters.
 
-Historically, such parameters were defined with a `__setup()` macro.
+Historically, such parameters were defined with a `__setup()` macro,
+and in a lot of places they still are.
 Their definition is now stored in a `struct obs_kernel_param` (IIUC
 `obs` stands for “obsolete”), and they are processed just after core
 parameters, see `obsolete_checksetup()`. The setup function takes a
