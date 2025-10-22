@@ -62,7 +62,7 @@ Historically, such parameters were defined with a `__setup()` macro,
 and in a lot of places they still are.
 Their definition is now stored in a `struct obs_kernel_param` (IIUC
 `obs` stands for “obsolete”), and they are processed just after core
-parameters, see `obsolete_checksetup()`. The setup function takes a
+parameters, see `obsolete_checksetup()`. The setup function receives a
 single string argument, which will point to the equals sign (`=`)
 separating the parameter name from its value, *unless* that character
 was appended to the option name given to `__setup()`. The equals sign
@@ -72,7 +72,7 @@ skip it if necessary).
 
 The `__setup()` macro is defined using the `__setup_param()` macro
 (which is also used directly in a few places). The last parameter of
-the `__setup_param()` is called `early` and it is used to initialise a
+`__setup_param()` is called `early` and it is used to initialise a
 `struct obs_kernel_param` field of the same name. It is set to zero by
 `__setup()` and all direct users, but it is set to one by another
 macro, called `early_param()`. This macro is used for “true” early
