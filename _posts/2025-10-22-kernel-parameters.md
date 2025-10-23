@@ -113,3 +113,32 @@ The remaining architectures rely on a fallback call in
 - openrisc
 - parisc
 - um
+
+## Sysctl Parameters
+
+(This section was added thanks to Vlasta.)
+
+It is also possible to set a sysctl using a command line parameter
+that starts with `sysctl.`. This is done very late in the process
+(just before executing the `init` process) by calling
+`do_sysctl_args()` from `kernel_init()`. It works by mounting a `proc`
+filesystem and writing the option value to the corresponding file.
+
+Last but not least, there are four sysctl options that were introduced
+before the generic mechanism, and the original non-prefixed names are
+kept as aliases:
+
+`hardlockup_all_cpu_backtrace`
+: = `sysctl.kernel.hardlockup_all_cpu_backtrace`
+
+`hung_task_panic`
+: = `sysctl.kernel.hung_task_panic`
+
+`numa_zonelist_order`
+: = `sysctl.vm.numa_zonelist_order`
+
+`softlockup_all_cpu_backtrace`
+: = `sysctl.kernel.softlockup_all_cpu_backtrace`
+
+Apart from the missing prefix and a few other peculiarities (e.g. to
+prevent reporting them as unknown), there is nothing special about them.
